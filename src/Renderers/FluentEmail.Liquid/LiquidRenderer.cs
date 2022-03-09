@@ -34,7 +34,7 @@ namespace FluentEmail.Liquid
             var fileProvider = rendererOptions.FileProvider;
             var viewTemplate = ParseTemplate(template);
 
-            var context = new TemplateContext(model)
+            var context = new TemplateContext(model, rendererOptions.TemplateOptions)
             {
                 // provide some services to all statements
                 AmbientValues =
