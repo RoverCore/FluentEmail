@@ -12,9 +12,9 @@ using NUnit.Framework;
 
 namespace FluentEmail.Liquid.Tests
 {
-	public class LiquidTests
+    public class LiquidTests
     {
-	    private const string ToEmail = "bob@test.com";
+        private const string ToEmail = "bob@test.com";
         private const string FromEmail = "johno@test.com";
         private const string Subject = "sup dawg";
 
@@ -22,7 +22,7 @@ namespace FluentEmail.Liquid.Tests
         public void SetUp()
         {
             // default to have no file provider, only required when layout files are in use
-            SetupRenderer(null);
+            SetupRenderer();
         }
 
         private static void SetupRenderer(
@@ -51,14 +51,13 @@ namespace FluentEmail.Liquid.Tests
             Assert.AreEqual("sup LUKE here is a list 123", email.Data.Body);
         }
 
-
         [Test]
         public void Custom_Context_Values()
         {
             SetupRenderer(new NullFileProvider(), (context, model) =>
             {
                 context.SetValue("FirstName", "Samantha");
-                context.SetValue("IntegerNumbers", new[] {3, 2, 1});
+                context.SetValue("IntegerNumbers", new[] { 3, 2, 1 });
             });
 
             const string template = "sup {{ FirstName }} here is a list {% for i in IntegerNumbers %}{{ i }}{% endfor %}";
@@ -150,37 +149,34 @@ namespace FluentEmail.Liquid.Tests
             }
         }
 
-	    [Test]
-	    public void Should_be_able_to_use_project_layout()
-	    {
+        [Test]
+        public void Should_be_able_to_use_project_layout()
+        {
             SetupRenderer(new PhysicalFileProvider(Path.Combine(new FileInfo(Assembly.GetExecutingAssembly().Location).Directory!.FullName, "EmailTemplates")));
 
-		    const string template = @"
-{% layout '_layout.liquid' %}
+            const string template = @"{% layout '_layout.liquid' %}
 sup {{ Name }} here is a list {% for i in Numbers %}{{ i }}{% endfor %}";
 
-			var email = new Email(FromEmail)
-			    .To(ToEmail)
-			    .Subject(Subject)
-			    .UsingTemplate(template, new ViewModel{ Name = "LUKE", Numbers = new[] { "1", "2", "3" } });
+            var email = new Email(FromEmail)
+                .To(ToEmail)
+                .Subject(Subject)
+                .UsingTemplate(template, new ViewModel { Name = "LUKE", Numbers = new[] { "1", "2", "3" } });
 
-		    Assert.AreEqual($"<h1>Hello!</h1>{Environment.NewLine}<div>{Environment.NewLine}sup LUKE here is a list 123</div>", email.Data.Body);
-	    }
-
+            Assert.AreEqual($"<h1>Hello!</h1>{Environment.NewLine}<div>{Environment.NewLine}sup LUKE here is a list 123</div>", email.Data.Body);
+        }
 
         [Test]
         public void Should_be_able_to_use_embedded_layout()
         {
             SetupRenderer(new EmbeddedFileProvider(typeof(LiquidTests).Assembly, "FluentEmail.Liquid.Tests.EmailTemplates"));
 
-            const string template = @"
-{% layout '_embedded.liquid' %}
+            const string template = @"{% layout '_embedded.liquid' %}
 sup {{ Name }} here is a list {% for i in Numbers %}{{ i }}{% endfor %}";
 
             var email = new Email(FromEmail)
                 .To(ToEmail)
                 .Subject(Subject)
-                .UsingTemplate(template, new ViewModel{ Name = "LUKE", Numbers = new[] { "1", "2", "3" } });
+                .UsingTemplate(template, new ViewModel { Name = "LUKE", Numbers = new[] { "1", "2", "3" } });
 
             Assert.AreEqual($"<h2>Hello!</h2>{Environment.NewLine}<div>{Environment.NewLine}sup LUKE here is a list 123</div>", email.Data.Body);
         }

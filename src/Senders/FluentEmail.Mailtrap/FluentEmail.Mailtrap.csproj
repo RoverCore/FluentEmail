@@ -6,10 +6,15 @@
     <Authors>Luke Lowrey;Ben Cull;Anthony Zigenbine;Github Contributors</Authors>
     <PackageTags>$(PackageTags);mailtrap</PackageTags>
     <TargetFramework>netstandard2.0</TargetFramework>
+	<PackageId>RoverCore.$(AssemblyName)</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\FluentEmail.Smtp\FluentEmail.Smtp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.1.1" />
   </ItemGroup>
 
 </Project>

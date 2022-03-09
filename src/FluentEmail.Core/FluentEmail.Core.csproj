@@ -5,6 +5,7 @@
     <AssemblyTitle>Fluent Email</AssemblyTitle>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssetsDirectory>../../assets</AssetsDirectory>
+	<PackageId>RoverCore.$(AssemblyName)</PackageId>
   </PropertyGroup>
 
   <!--<Target Name="PostcompileScript" AfterTargets="Build" Condition=" '$(IsCrossTargetingBuild)' != 'true' ">
@@ -12,7 +13,11 @@
   </Target>-->
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.1.1" />
   </ItemGroup>
 
 </Project>

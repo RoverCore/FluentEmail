@@ -5,11 +5,11 @@
     <Authors>Luke Lowrey;Ben Cull;Github Contributors</Authors>
     <PackageTags>email;smtp;fluent;fluentemail</PackageTags>
     <PackageIconUrl>https://raw.githubusercontent.com/lukencode/FluentEmail/master/assets/fluentemail_logo_64x64.png</PackageIconUrl>
-    <PackageIcon>fluentemail_logo_64x64.png</PackageIcon>
+    <PackageIcon>logo.png</PackageIcon>
     <PackageProjectUrl>https://github.com/lukencode/FluentEmail</PackageProjectUrl>
     <RepositoryUrl>https://github.com/lukencode/FluentEmail</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>3.0.0</Version>
+    <Version>3.0.1</Version>
 
 
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
@@ -32,7 +32,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="$(AssetsDirectory)/fluentemail_logo_64x64.png" Pack="true" Visible="false" PackagePath=""/>
+    <None Include="$(AssetsDirectory)/logo.png" Pack="true" Visible="false" PackagePath=""/>
   </ItemGroup>
 
   <ItemGroup>

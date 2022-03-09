@@ -6,6 +6,7 @@
     <Authors>Luke Lowrey;Ben Cull;Ricardo Santos;Github Contributors</Authors>
     <PackageTags>$(PackageTags);sendgrid</PackageTags>
     <TargetFramework>netstandard2.0</TargetFramework>
+	<PackageId>RoverCore.$(AssemblyName)</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +15,10 @@
 
   <ItemGroup>
     <PackageReference Include="Sendgrid" Version="9.22.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.1.1" />
   </ItemGroup>
 
 </Project>
