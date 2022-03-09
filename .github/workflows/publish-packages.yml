@@ -20,7 +20,7 @@ jobs:
       run: dotnet build --configuration Release --no-restore
 
     - name: Publish FluentEmail.Core
-      uses: brandedoutcast/publish-nuget@v2.5.2
+      uses: alirezanet/publish-nuget@v3.0.0
       with:
           PROJECT_FILE_PATH: src/FluentEmail.Core/FluentEmail.Core.csproj
           VERSION_FILE_PATH: src/Directory.Build.props
@@ -28,7 +28,7 @@ jobs:
           NUGET_SOURCE: https://api.nuget.org
           INCLUDE_SYMBOLS: true
     - name: Publish FluentEmail.Smtp
-      uses: brandedoutcast/publish-nuget@v2.5.2
+      uses: alirezanet/publish-nuget@v3.0.0
       with:
           PROJECT_FILE_PATH: src/Senders/FluentEmail.Smtp/FluentEmail.Smtp.csproj
           VERSION_FILE_PATH: src/Directory.Build.props
@@ -36,7 +36,7 @@ jobs:
           NUGET_SOURCE: https://api.nuget.org
           INCLUDE_SYMBOLS: true
     - name: Publish FluentEmail.Sendgrid
-      uses: brandedoutcast/publish-nuget@v2.5.2
+      uses: alirezanet/publish-nuget@v3.0.0
       with:
           PROJECT_FILE_PATH: src/Senders/FluentEmail.SendGrid/FluentEmail.SendGrid.csproj
           VERSION_FILE_PATH: src/Directory.Build.props
@@ -50,7 +50,7 @@ jobs:
     #      NUGET_KEY: ${{secrets.NUGET_API_KEY}}
     #      NUGET_SOURCE: https://api.nuget.org
     - name: Publish FluentEmail.MailKit
-      uses: brandedoutcast/publish-nuget@v2.5.2
+      uses: alirezanet/publish-nuget@v3.0.0
       with:
           PROJECT_FILE_PATH: src/Senders/FluentEmail.MailKit/FluentEmail.MailKit.csproj
           VERSION_FILE_PATH: src/Directory.Build.props
@@ -58,7 +58,7 @@ jobs:
           NUGET_SOURCE: https://api.nuget.org
           INCLUDE_SYMBOLS: true
     - name: Publish FluentEmail.Mailgun
-      uses: brandedoutcast/publish-nuget@v2.5.2
+      uses: alirezanet/publish-nuget@v3.0.0
       with:
           PROJECT_FILE_PATH: src/Senders/FluentEmail.Mailgun/FluentEmail.Mailgun.csproj
           VERSION_FILE_PATH: src/Directory.Build.props
@@ -66,7 +66,7 @@ jobs:
           NUGET_SOURCE: https://api.nuget.org
           INCLUDE_SYMBOLS: true
     - name: Publish FluentEmail.Razor
-      uses: brandedoutcast/publish-nuget@v2.5.2
+      uses: alirezanet/publish-nuget@v3.0.0
       with:
           PROJECT_FILE_PATH: src/Renderers/FluentEmail.Razor/FluentEmail.Razor.csproj
           VERSION_FILE_PATH: src/Directory.Build.props
@@ -74,7 +74,7 @@ jobs:
           NUGET_SOURCE: https://api.nuget.org
           INCLUDE_SYMBOLS: true
     - name: Publish FluentEmail.Liquid
-      uses: brandedoutcast/publish-nuget@v2.5.2
+      uses: alirezanet/publish-nuget@v3.0.0
       with:
           PROJECT_FILE_PATH: src/Renderers/FluentEmail.Liquid/FluentEmail.Liquid.csproj
           VERSION_FILE_PATH: src/Directory.Build.props
